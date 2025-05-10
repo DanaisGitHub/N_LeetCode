@@ -10,7 +10,7 @@ class Solution:
             else:
                 return [r+1,l+1]
             
-    def threeSum(self, nums: List[int]) -> List[List[int]]:
+    # def threeSum(self, nums: List[int]) -> List[List[int]]:
         
 
     

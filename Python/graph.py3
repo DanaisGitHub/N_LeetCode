@@ -150,68 +150,116 @@ class Solution:
         # for each do edge perform dfs or bfs
 
         pacificSet, atlanticSet = set(), set()
-        pacificList,atlanticList = [], []
+        pacificList, atlanticList = [], []
         ROWS, COLS = len(heights), len(heights[0])
         movements = [[1, 0], [0, 1], [-1, 0], [0, -1]]
 
         # stupdily you made false = ... and true = 0
-        def addEndPoints(nCord: Tuple[int:bool], mCord: Tuple[int:bool], theSet: set, theList:List[int]) -> None:
+        def addEndPoints(nCord: Tuple[int:bool], mCord: Tuple[int:bool], theSet: set, theList: List[int]) -> None:
             endN, nBool = nCord
             endM, mBool = mCord
 
             startN = 0 if not nBool else endN-1
             startM = 0 if not mBool else endM-1
-            
+
             for n in range(startN, endN):
                 for m in range(startM, endM):
                     theSet.add((n, m))
                     theList.append((n, m))
-                    
-        addEndPoints((ROWS, False), (1, True), pacificSet,pacificList)
-        addEndPoints((1, True), (COLS, False), pacificSet,pacificList)
-        addEndPoints((ROWS, False), (COLS, True), atlanticSet,atlanticList)
-        addEndPoints((ROWS, True), (COLS, False), atlanticSet,atlanticList)
+
+        addEndPoints((ROWS, False), (1, True), pacificSet, pacificList)
+        addEndPoints((1, True), (COLS, False), pacificSet, pacificList)
+        addEndPoints((ROWS, False), (COLS, True), atlanticSet, atlanticList)
+        addEndPoints((ROWS, True), (COLS, False), atlanticSet, atlanticList)
 
         # for each position you need to see if path exsits to other set
-        
-        def dfs(pos:Tuple[int,int],endGoalSet:set,visited:set())->bool:
-            r,c=pos
-            visited.add((r,c))
-            
-            
-            if (r,c) in endGoalSet:
+
+        def dfs(pos: Tuple[int, int], endGoalSet: set, visited: set()) -> bool:
+            r, c = pos
+            visited.add((r, c))
+
+            if (r, c) in endGoalSet:
                 return True
-            
-            for movR,movC in movements:
-                newR,newC = r+movR,c+movC
-                if min(newR,newC) < 0 or newR >= ROWS or newC >= COLS or (newR,newC) in visited:
+
+            for movR, movC in movements:
+                newR, newC = r+movR, c+movC
+                if min(newR, newC) < 0 or newR >= ROWS or newC >= COLS or (newR, newC) in visited:
                     return False
                 if heights[r][c] < heights[newR][newC]:
                     return False
-                return False or dfs((newR,newC),endGoalSet,visited)
+                return False or dfs((newR, newC), endGoalSet, visited)
         res = []
-        for x,y in pacificSet:
-            if dfs((x,y),atlanticSet,set()):
-                res.append([x,y])
-                
-        for x,y in atlanticSet:
-            if dfs((x,y),pacificSet,set()):
-                res.append([x,y])
-        
+        for x, y in pacificSet:
+            if dfs((x, y), atlanticSet, set()):
+                res.append([x, y])
+
+        for x, y in atlanticSet:
+            if dfs((x, y), pacificSet, set()):
+                res.append([x, y])
+
         return res
-                
-            
-            
-   
-            
 
-           
+    def validTree(self, n: int, edges: List[List[int]]) -> bool:
+        # create adj list#
+
+        adjList = {}
+
+        for key, value in edges:
+            if key in adjList:
+                adjList[key].append(value)
+            else:
+                adjList[key] = [value]
+
+            if value in adjList:
+                adjList[value].append(key)
+            else:
+                adjList[value] = [key]
+
+        print(adjList)
+
+        # what makes a valid tree,
+        # can't have any loops
+        # all nodes must be connected, no free nodes
+
+    # init
+    def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
+
+        adjList: dict[int, List[int]] = {}
+        visted = set()
+
+        for preReq, course in prerequisites:
+            if not preReq in adjList:
+                adjList[preReq] = []
+            if not course in adjList:
+                adjList[course] = []
+            adjList[preReq].append(course)
+
+        def dfs(key: int) -> bool: # dfs for each element in the key
+            if key in visted: # 
+                return False
+            if adjList[key] == []:
+                return True
+
+            visted.add(key)  # Will only contain 1 element aka key
+
+            for course in adjList[key]:
+                cycle = not dfs(course)
+                if cycle:
+                    return False
+            
+            visted.remove(key)
+            
+            adjList[key] = [] # clear all children so (almost like dynamic programming)
+            
+            return True
+            
+        for postReq, preReq in prerequisites:
+            if not dfs(postReq):
+                return False
+        
+        return True
 
 
-grid = [
-    [4, 2, 7, 3, 4],
-    [7, 4, 6, 4, 7],
-    [6, 3, 5, 3, 6]
-]
-x = Solution.pacificAtlantic(0, grid)
+grid = [[1,4],[2,4],[3,1],[3,2]]
+x = Solution.validTree(0, 5, grid)
 print(x)

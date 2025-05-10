@@ -1,0 +1,15 @@
+C:\Users\DZera\All_Software\My Software\NeetCode\C#\NeetCodeC#\bin\Debug\net9.0\NeetCodeC#.exe
+C:\Users\DZera\All_Software\My Software\NeetCode\C#\NeetCodeC#\bin\Debug\net9.0\NeetCodeC#.deps.json
+C:\Users\DZera\All_Software\My Software\NeetCode\C#\NeetCodeC#\bin\Debug\net9.0\NeetCodeC#.runtimeconfig.json
+C:\Users\DZera\All_Software\My Software\NeetCode\C#\NeetCodeC#\bin\Debug\net9.0\NeetCodeC#.dll
+C:\Users\DZera\All_Software\My Software\NeetCode\C#\NeetCodeC#\bin\Debug\net9.0\NeetCodeC#.pdb
+C:\Users\DZera\All_Software\My Software\NeetCode\C#\NeetCodeC#\obj\Debug\net9.0\NeetCodeC#.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DZera\All_Software\My Software\NeetCode\C#\NeetCodeC#\obj\Debug\net9.0\NeetCodeC#.AssemblyInfoInputs.cache
+C:\Users\DZera\All_Software\My Software\NeetCode\C#\NeetCodeC#\obj\Debug\net9.0\NeetCodeC#.AssemblyInfo.cs
+C:\Users\DZera\All_Software\My Software\NeetCode\C#\NeetCodeC#\obj\Debug\net9.0\NeetCodeC#.csproj.CoreCompileInputs.cache
+C:\Users\DZera\All_Software\My Software\NeetCode\C#\NeetCodeC#\obj\Debug\net9.0\NeetCodeC#.sourcelink.json
+C:\Users\DZera\All_Software\My Software\NeetCode\C#\NeetCodeC#\obj\Debug\net9.0\NeetCodeC#.dll
+C:\Users\DZera\All_Software\My Software\NeetCode\C#\NeetCodeC#\obj\Debug\net9.0\refint\NeetCodeC#.dll
+C:\Users\DZera\All_Software\My Software\NeetCode\C#\NeetCodeC#\obj\Debug\net9.0\NeetCodeC#.pdb
+C:\Users\DZera\All_Software\My Software\NeetCode\C#\NeetCodeC#\obj\Debug\net9.0\NeetCodeC#.genruntimeconfig.cache
+C:\Users\DZera\All_Software\My Software\NeetCode\C#\NeetCodeC#\obj\Debug\net9.0\ref\NeetCodeC#.dll
